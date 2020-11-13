@@ -18,7 +18,7 @@ RUN /etc/init.d/mysql start && \
 	cd /var/www/html/magento2ce/ &&  \
 	php bin/magento setup:install --base-url=http://magento2u.loc:8080 \
 	--admin-firstname=admin --admin-lastname=admin --backend-frontname=admin \
-	--admin-email=chandlerbing7@gmail.com --admin-user=admin \
+	--admin-email=admin@example.com --admin-user=admin \
 	--admin-password=mageU123 --db-name=m2 --db-host=localhost --db-user=root \
 	--use-rewrites=1; \
 	php bin/magento index:reindex ; \
@@ -26,8 +26,7 @@ RUN /etc/init.d/mysql start && \
 	apt install -y nodejs && \
 	npm install -g grunt-cli && \
 	npm install && \
-	grunt exec && \
-	grunt less
+	php bin/magento deploy:mode:set developer
 
 RUN chown -R www-data:www-data /var/www/html/magento2ce/
 
