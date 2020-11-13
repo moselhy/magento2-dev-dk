@@ -5,7 +5,7 @@ MAINTAINER chandlerbing7@gmail.com
 
 # System
 RUN	apt update
-RUN apt install -y 	curl nano vim sendmail cron
+RUN apt install -y 	curl nano vim sendmail cron locate
 RUN echo "127.0.0.1 localhost magento2u.loc" >> /etc/hosts
 
 # Apache
