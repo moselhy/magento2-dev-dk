@@ -26,7 +26,8 @@ RUN /etc/init.d/mysql start && \
 	apt install -y nodejs && \
 	npm install -g grunt-cli && \
 	npm install && \
-	php bin/magento deploy:mode:set developer
+	php bin/magento deploy:mode:set developer && \
+	composer require --dev n98/magerun2-dist
 
 RUN chown -R www-data:www-data /var/www/html/magento2ce/
 
