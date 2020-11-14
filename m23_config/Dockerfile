@@ -26,6 +26,8 @@ RUN /etc/init.d/mysql start && \
 	apt install -y nodejs && \
 	npm install -g grunt-cli && \
 	npm install && \
+	grunt exec && \
+    grunt less && \
 	php bin/magento deploy:mode:set developer && \
 	composer require --dev n98/magerun2-dist
 
