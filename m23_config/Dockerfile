@@ -1,5 +1,4 @@
 FROM mike/debian_config
-MAINTAINER chandlerbing7@gmail.com
 
 RUN composer create-project --repository=https://repo.magento.com/ magento/project-community-edition=2.3.6 /var/www/html/magento2ce/
 #RUN composer create-project --repository=https://repo.magento.com/ magento/project-enterprise-edition /var/www/html/magento2ce/

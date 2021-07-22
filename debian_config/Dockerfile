@@ -1,5 +1,4 @@
 FROM debian:latest
-MAINTAINER chandlerbing7@gmail.com
 
 #ARG AUTH_JSON
 
