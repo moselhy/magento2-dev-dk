@@ -95,7 +95,7 @@ docker exec -ti m23 /bin/bash
 
 _Windows_
 ```
-winpty docker exec -it m23 //bin/sh
+docker exec -it m23 //bin/sh
 ```
 
 **Getting Access to the Magento instance**
@@ -227,7 +227,7 @@ docker exec -ti <CONTAINER_ID> /bin/bash
 
 _Windows_
 ```
-winpty docker exec -it <CONTAINER_ID> //bin/sh
+docker exec -it <CONTAINER_ID> //bin/sh
 ```
 
 Example:
@@ -239,7 +239,7 @@ docker exec -ti m23 /bin/bash
 
 Windows:
 ```
-winpty docker exec -it m23 //bin/sh
+docker exec -it m23 //bin/sh
 ```
 
 To stop the VM, use the following command:
