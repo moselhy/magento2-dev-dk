@@ -31,6 +31,7 @@ RUN /etc/init.d/mysql start && \
     composer require --dev n98/magerun2-dist
 
 RUN chown -R www-data:www-data /var/www/html/magento2ce/
+RUN chmod -R 755 /var/www/html/magento2ce/pub
 
 RUN apt --purge autoremove -y ; apt clean
 

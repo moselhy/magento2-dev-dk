@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   base:
@@ -9,16 +9,29 @@ services:
   m23:
     build: ./m23_config/
     image: mike/m23_config
+    extra_hosts:
+      - "magento2u.loc:127.0.0.1"
     depends_on:
       - base
     ports:
       - "8080:80"
       - "4306:3306"
     volumes:
-#       - /Path/To/Your/magento/magento2-dev-dk/instances:/var/www/html/shared
-#       - /Users/molochko/Sites/magento/magento2-dev-dk/instances:/var/www/html/shared
-       - src-volume-dk:/var/www/html/shared
+      #       - /Path/To/Your/magento/magento2-dev-dk/instances:/var/www/html/shared
+      #       - /Users/molochko/Sites/magento/magento2-dev-dk/instances:/var/www/html/shared
+      - src-volume-dk:/var/www/html/shared
     tty: true
     container_name: m23
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      - PMA_HOST=m23
+      - PMA_USER=magento
+      - PMA_PASSWORD=magento
+    ports:
+      - 8088:80
+    depends_on:
+      - m23
 volumes:
   src-volume-dk:

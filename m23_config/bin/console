@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 
-PATHS="/var/www/html/shared/magento2ce"
+PATHS="/var/www/html/magento2ce"
 
 execute() {
     docker-compose exec m23 php $PATHS/bin/magento $*
