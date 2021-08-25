@@ -78,7 +78,7 @@ COPY ./composer/auth.json /root/.composer/auth.json
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 
 # Git
-RUN apt install -y git
+RUN apt install -y git unzip
 
 RUN apt --purge autoremove -y && apt clean -y
 
