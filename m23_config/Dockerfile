@@ -10,7 +10,7 @@ RUN cp /root/.composer/auth.json /var/www/html/magento2ce/var/composer_home/auth
 RUN cd /var/www/html/magento2ce/ && \
     composer install && \
     php bin/magento sampledata:deploy && \
-    bin/magento setup:upgrade ; \
+    php bin/magento setup:upgrade && \
     mv Gruntfile.js.sample Gruntfile.js && \
     mv package.json.sample package.json
 RUN /etc/init.d/mysql start && \
@@ -19,10 +19,9 @@ RUN /etc/init.d/mysql start && \
     --admin-firstname=admin --admin-lastname=admin --backend-frontname=admin \
     --admin-email=admin@example.com --admin-user=admin \
     --admin-password=mageU123 --db-name=m2 --db-host=localhost --db-user=root \
-    --use-rewrites=1; \
-    php bin/magento index:reindex ; \
-    php bin/magento c:c ; \
-    apt install -y nodejs && \
+    --use-rewrites=1 && \
+    php bin/magento index:reindex && \
+    php bin/magento c:c && \
     npm install -g grunt-cli && \
     npm install && \
     grunt exec && \
@@ -33,7 +32,7 @@ RUN /etc/init.d/mysql start && \
 RUN chown -R www-data:www-data /var/www/html/magento2ce/
 RUN chmod -R 755 /var/www/html/magento2ce/pub
 
-RUN apt --purge autoremove -y ; apt clean
+RUN apt --purge autoremove -y && apt clean
 
 ENTRYPOINT  /etc/init.d/mysql start && service sendmail restart && \
             service apache2 restart && bash
